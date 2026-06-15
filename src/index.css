@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════
+   Birthday SPA — Design System
+   ══════════════════════════════════════════════ */
+
+@theme {
+  --color-lavender: #cbbfdc;
+  --color-lavender-deep: #9f93b6;
+  --color-lavender-light: #ece6f3;
+  --color-blush: #efd4df;
+  --color-blush-deep: #cda9ba;
+  --color-blush-light: #f8ebf1;
+  --color-cream: #fbf7f1;
+  --color-cream-dark: #f2ece2;
+  --color-gold: #c8b08b;
+  --color-gold-light: #ddccb1;
+  --color-gold-dark: #ab9473;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-handwriting: 'Dancing Script', cursive;
+}
+
+/* ── Global Reset ────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background: #241f2e;
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  position: relative;
+}
+
+/* ── Glassmorphism ───────────────────────────── */
+.glass {
+  background: rgba(251, 247, 241, 0.09);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 247, 241, 0.2);
+  border-radius: 24px;
+}
+
+.glass-strong {
+  background: rgba(251, 247, 241, 0.13);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(251, 247, 241, 0.24);
+  border-radius: 24px;
+}
+
+/* ── Pulse Animation ─────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 14px rgba(200, 176, 139, 0.22),
+      0 0 32px rgba(200, 176, 139, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(200, 176, 139, 0.34),
+      0 0 44px rgba(200, 176, 139, 0.12),
+      0 0 58px rgba(200, 176, 139, 0.08);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Shimmer Effect ──────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-light) 25%,
+    var(--color-gold) 50%,
+    var(--color-gold-light) 75%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Float Animation ─────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Handwriting Style ───────────────────────── */
+.handwriting {
+  font-family: var(--font-handwriting);
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+/* ── Scene Container ─────────────────────────── */
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Canvas Overlay ──────────────────────────── */
+.canvas-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.canvas-overlay > * {
+  pointer-events: auto;
+}
+
+/* ── Scrollbar Hide ──────────────────────────── */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Custom selection ────────────────────────── */
+::selection {
+  background: rgba(200, 176, 139, 0.28);
+  color: var(--color-cream);
+}
+
+.note-hint {
+  font-style: italic;
+  font-size: 0.7rem;
+  color: rgba(251, 247, 241, 0.22);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  font-family: 'Inter', sans-serif;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-transform: none;
+  user-select: none;
+}
