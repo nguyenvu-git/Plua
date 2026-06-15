@@ -82,7 +82,7 @@ const sendWrongPasswordNotification = (attempt) => {
 const letterLines = [
   { text: "Chúc mừng sinh nhật em.", type: "greeting" },
   { text: "", type: "spacer" },
-  { text: "Thật lạ khi nhận ra đã 6 tháng", type: "body" },
+  { text: "Thật lạ khi nhận ra đã 5 tháng", type: "body" },
   { text: "kể từ lần cuối chúng ta nói chuyện.", type: "body" },
   { text: "Khoảng thời gian ấy đủ dài để nhiều thứ thay đổi,", type: "body" },
   { text: "nhưng cũng đủ ngắn để một vài kỷ niệm", type: "body" },
@@ -146,7 +146,7 @@ const secretLetterLines = [
   { text: "vẫn ở lại trong một góc rất riêng của trái tim.", type: "body" },
   { text: "", type: "spacer" },
   {
-    text: "Sáu tháng qua, bạn đã nhiều lần muốn nhắn cho em. Có những ngày nhìn thấy một điều quen thuộc,",
+    text: "5 tháng qua, bạn đã nhiều lần muốn nhắn cho em. Có những ngày nhìn thấy một điều quen thuộc,",
     type: "body",
   },
   {
@@ -582,9 +582,9 @@ export default function LetterScene({ onNext }) {
               animate={
                 isError
                   ? {
-                      x: [0, -10, 10, -10, 10, 0],
-                      transition: { duration: 0.45 },
-                    }
+                    x: [0, -10, 10, -10, 10, 0],
+                    transition: { duration: 0.45 },
+                  }
                   : { scale: 1, opacity: 1, y: 0 }
               }
               exit={{ scale: 0.9, opacity: 0 }}
