@@ -639,7 +639,7 @@ export default function CelebrationScene() {
                   transition: "all 0.25s",
                 }}
               >
-                {wishSending ? "✨ Đang gửi..." : "Đến thổi nến 🕯️"}
+                {wishSending ? "✨ Đang gửi..." : "Tiếp ..."}
               </motion.button>
             </motion.div>
           </motion.div>
